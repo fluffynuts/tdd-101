@@ -3,13 +3,13 @@
 Credit: <a href="https://osherove.com/tdd-kata-1">Roy Osherove</a>
 
 #### Before you begin
+
 - Solve each set of requirements in order, as you would do for a business case
 - Do not look ahead to future requirements. Business requirements expand as the customer requires them: we can't (and shouldn't) plan ahead for every possible scenario
 - Do not solve for cases outside of the scope of the requirements. Exceptions are fine when inputs are not catered for within the specification
 
-
 <details>
-    <summary>Reveal</summary>
+    <summary>Spec #1</summary>
     <p>
     Create a simple String calculator with a method signature:
     <pre><code>int Add(string numbers)</code></pre>
@@ -26,66 +26,67 @@ Credit: <a href="https://osherove.com/tdd-kata-1">Roy Osherove</a>
       </ul>
     </p>
 </details>
-
-  <li>
-    <details>
-      <summary>Reveal</summary>
-      <p>
-      Allow the Add method to handle an unknown amount of numbers
-      </p>
-    </details>
-  </li>
-  <li>
-    <details>
-      <summary>Reveal</summary>
-      <p>
-        Allow the Add method to handle new lines between numbers (instead of commas).
-        <ol data-rte-list="default">
-          <li>
-            The following input is ok: ΓÇ£1\n2,3ΓÇ¥ (will equal 6)
-          </li>
-          <li>
-            The following input is NOT ok: ΓÇ£1,\nΓÇ¥ (not need to prove it - just clarifying). Invalid input may produce unspecified errors.
-          </li>
-        </ol>
-      </p>
-    </details>
-  </li>
-  <li>
-    <details>
-      <summary>Reveal</summary>
-    <pre><code>Support different delimiters</code></pre>
+<details>
+  <summary>Spec #2</summary>
+  <p>
+  Allow the Add method to handle an unknown amount of numbers
+  </p>
+</details>
+<details>
+  <summary>Spec #3</summary>
+  <p>
+    Allow the Add method to handle new lines between numbers (instead of commas).
     <ol data-rte-list="default">
       <li>
-        <pre><code>to change a delimiter, the beginning of the string will contain a separate line that looks like this: ΓÇ£//[delimiter]\n[numbersΓÇª]ΓÇ¥ for example ΓÇ£//;\n1;2ΓÇ¥ should return three where the default delimiter is ΓÇÿ;ΓÇÖ .</code></pre>
+        The following input is ok: ΓÇ£1\n2,3ΓÇ¥ (will equal 6)
       </li>
       <li>
-        <pre><code>the first line is optional. all existing scenarios should still be supported</code></pre>
-        <pre><code>ΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö</code></pre>
+        The following input is NOT ok: ΓÇ£1,\nΓÇ¥ (not need to prove it - just clarifying). Invalid input may produce unspecified errors.
       </li>
     </ol>
-    </details>
-  </li>
-  <li>
-    <pre><code>Calling Add with a negative number will throw an exception ΓÇ£negatives not allowedΓÇ¥ - and the negative that was passed. </code></pre>
-    <pre><code>if there are multiple negatives, show all of them in the exception message.</code></pre>
-    <pre><code>ΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö</code></pre>
-    <pre><code>STOP HERE if you are a beginner. Continue if you can finish the steps so far in less than 30 minutes.</code></pre>
-    <pre><code>ΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö</code></pre>
-  </li>
-  <li>
-    <pre><code>Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2</code></pre>
-    <pre><code>ΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö</code></pre>
-  </li>
-  <li>
-    <pre><code>Delimiters can be of any length with the following format: ΓÇ£//[delimiter]\nΓÇ¥ for example: ΓÇ£//[***]\n1***2***3ΓÇ¥ should return 6</code></pre>
-    <pre><code>ΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö</code></pre>
-  </li>
-  <li>
-    <pre><code>Allow multiple delimiters like this: ΓÇ£//[delim1][delim2]\nΓÇ¥ for example ΓÇ£//[*][%]\n1*2%3ΓÇ¥ should return 6.</code></pre>
-    <pre><code>ΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö</code></pre>
-  </li>
-  <li>
-    <pre><code>make sure you can also handle multiple delimiters with length longer than one char</code></pre>
-  </li>
+  </p>
+</details>
+<details>
+  <summary>Spec #4</summary>
+  Support different delimiters
+
+To change a delimiter, the beginning of the string will contain a separate line that looks like
+this: "//[delimiter]\n[numbers]" for example "//;\n1;2" should return three where the default
+delimiter is ";".
+
+The first line is optional. all existing scenarios should still be supported
+
 </ol>
+</details>
+
+<details>
+  <summary>Spec #5</summary>
+    Calling `Add` with a negative number will throw an exception:
+    "negatives not allowed" - and the negative that was passed.
+
+    If there are multiple negatives, show all of them in the exception message.
+
+    STOP HERE if you are a beginner. Continue if you can finish the steps so far in less than 30
+    minutes.
+
+</details>
+<details>
+  <summary>Spec #6</summary>
+    Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
+</details>
+<details>
+  <summary>Spec #6</summary>
+     Delimiters can be of any length with the following format: "//[delimiter]\n",
+     for example: "//[***]\n1***2***" should return 6
+
+</details>
+<details>
+  <summary>Spec #7</summary>
+  Allow multiple delimiters like this:
+
+  "//[delim1][delim2]\n"
+  for example
+  "//[*][%]\n1*2%3" should return 6
+
+  - make sure you can also handle multiple delimiters with length longer than one char
+</details>
