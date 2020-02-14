@@ -63,7 +63,7 @@ Workshop: [String Calculator](workshops/02-string-calculator/readme.md)
             - random values are random: make sure the range of randomness is valid
             - congratulations! perhaps you've found a bug in your production code?
 
-Workshop: [TDD CRUD](workshops/03-crud/readme.md)
+Workshop: [CRUD](workshops/03-crud/readme.md)
 
 - Gearing up
     - Fakes, Mocks and Stubs
@@ -72,3 +72,5 @@ Workshop: [TDD CRUD](workshops/03-crud/readme.md)
         - why?
         - substitutes with NSubstitute
     - Test arenas
+
+Workshop: [WebApi Controller](workshops/04-webapi-controller/readme.md)

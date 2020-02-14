@@ -1,4 +1,4 @@
-namespace TDD101.Workshops.CRUD.CQRS.Framework
+namespace TDD101.Workshops.WebApi.CQRS
 {
     public interface IQueryExecutor
     {
