@@ -2,10 +2,12 @@
 (this document should be split up at some point)
 
 ## Introduction
+### Summary:
 - What is TDD?
 - Why bother doing it?
 - The testing pyramid
     - unit tests vs integration tests
+- The TDD cadence: Red, Green, Refactor
 - TDD "gears"
     - low gear
         - when you're new at TDD
@@ -23,6 +25,7 @@
     - [TestCaseSource]
     - Setup and teardown
     - [Ignore] vs [Explicit]
+[full notes](01-introduction.md)
 
 Workshop: [DateTimeProvider](workshops/01-datetime-provider/readme.md)
 
