@@ -384,5 +384,78 @@ it _really_ makes sense.
 `[SetUp]` and `[TearDown]` attributes are applied to methods on a test fixture which
 are required to be run before and after a test is run (respectively)
 
-#### [Ignore] vs [Explicit]
+A good example of this is for testing against a database, where we'd like the mutations
+from one test _not_ to flow into another. In such a case, under .NET, we could do:
 
+```csharp
+[TestFixture]
+public class TestDataAccessor
+{
+    [SetUp]
+    public void Setup()
+    {
+        _scope = TransactionScopes.ReadCommitted();
+    }
+
+    [TearDown]
+    public void Teardown()
+    {
+        try
+        {
+            // simply dispose the scope -- it hasn't been committed
+            //  so this rolls back whatever data activity happened
+            //  in the tests
+            _scope.Dispose()
+        }
+        catch
+        {
+            /* ignore - tests should catch errors, not teardown */
+        }
+    }
+}
+```
+
+#### [Ignore] vs [Explicit] vs [Category]
+
+Sometimes there's a test you might not want to run on every occasion:
+
+- it's highly dependent on external factors, so it fails frequently
+    - beware placing tests in this box though -- rather try to find ways
+        to make it more resilient and perhaps to mock out external dependencies
+- it's a discovery test
+    - unit tests are a great way to discover how an api or system works! Write
+        tests, place breakpoints, peer into the belly of the beast. Perhaps
+        even write assertions once you're done to illustrate what to expect!
+    - however, these tests take time to run and may be against external apis which
+        aren't guaranteed to be available, so we'd like to run them _only on specific
+        demand_
+- it's a big, slow, hairy integration test which illustrates something important but
+    which isn't necessary to run as part of regular CI testing
+
+You have three options:
+
+- `[Category("some category")]`
+    - groups tests under a category which has to be explicitly requested in a test run
+    - by default the nunit runner will only run uncategories, not-ignored, non-explicit
+        tests
+    - useful when there are integration tests you'd like to run via automation, under
+        specific conditions (eg, "these integration tests can only be expected to pass
+        between 08h00 and 16h00 when the staging API is available")
+- `[Explicit("some reason why")]`
+    - useful for tests you'd only like to run by explicitly selecting to run that
+        test (eg `Ctrl-U, Ctrl-R` inside the test)
+    - this is how I'd usually mark a discovery test: `[Explicit("Discovery: learning about {ABC}"]`
+- `[Ignore("some reason why")]`
+    - ignored tests are _never_ run. Even if you place your cursor within the test and
+        `Ctrl-U, Ctrl-R`, Riders _will not run it_
+    - tests should not stay in this state for long
+        - if you _really_ have to ignore a test because a release needs to happen and there's
+            some ancient test breaking and no-one can tell why, or even what the significance
+            of the test is, you may choose to `[Ignore("FIXME")]`
+        - if a test remains ignored for a lengthy period of time, one has to ask:
+            - does this test provide any useful feedback?
+            - should there be a better, replacement test?
+            - should this test be fixed?
+            - should this test just be deleted (it's being ignored anyway)
+    - this should be a temporary, last resort. It's better to mark a test as Explicit because
+        at least someone could choose to run (and hopefully fix) the test elsewhere.
