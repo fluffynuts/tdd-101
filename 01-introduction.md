@@ -381,5 +381,8 @@ it _really_ makes sense.
 
 #### Setup and teardown
 
+`[SetUp]` and `[TearDown]` attributes are applied to methods on a test fixture which
+are required to be run before and after a test is run (respectively)
+
 #### [Ignore] vs [Explicit]
 
