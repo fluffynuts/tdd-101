@@ -25,6 +25,7 @@
     - [TestCaseSource]
     - Setup and teardown
     - [Ignore] vs [Explicit]
+
 [full notes](01-introduction.md)
 
 Workshop: [DateTimeProvider](workshops/01-datetime-provider/readme.md)
