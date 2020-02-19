@@ -65,6 +65,8 @@ Workshop: [DateTimeProvider](workshops/01-datetime-provider/readme.md)
     - factory function to create SUT
         - DRY
         - future-proofing your tests
+        
+[full notes](02-diving-in.md)
 
 Workshop: [String Calculator](workshops/02-string-calculator/readme.md)
 
