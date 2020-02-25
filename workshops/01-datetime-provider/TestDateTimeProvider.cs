@@ -24,25 +24,31 @@ namespace TDD101.Workshops.DatetimeProvider
         }
 
         [Test]
-        public void ShouldReturnNewTimeEveryTime()
+        public void ShouldReturnCorrectDateTime()
+        public void ShouldReturnCorrectDateTimeTwice()
         {
             // Arrange
             var sut = Create();
             // Act
+            var start = DateTime.UtcNow;
             var result1 = sut.UtcNow;
-            Thread.Sleep(10);
+            var middle = DateTime.UtcNow;
             var result2 = sut.UtcNow;
+            var end = DateTime.UtcNow;
             // Assert
+            Expect(result1)
+                .To.Be.Greater.Than.Or.Equal.To(
+                    start,
+                    () => $"result: {result1.Ticks} vs start: {start.Ticks}")
+                .And
+                .To.Be.Less.Than.Or.Equal.To(
+                    middle);
             Expect(result2)
-                .To.Be.Greater.Than(result1);
-        }
-
-        [Test]
-        public void ShouldReturnCorrectDateTime()
-        {
-            // Arrange
-            // Act
-            // Assert
+                .To.Be.Greater.Than.Or.Equal.To(
+                    middle)
+                .And
+                .To.Be.Less.Than.Or.Equal.To(
+                    end);
         }
 
         private static IDateTimeProvider Create()
