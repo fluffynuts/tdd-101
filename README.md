@@ -34,9 +34,9 @@ Workshop: [DateTimeProvider](workshops/01-datetime-provider/readme.md)
 - Anatomy of a “good test”
     - descriptive name
         - Given / When / Then
-            - → SHOULD
-            - inspired by Javascript testing
-            - using sub-fixtures in NUnit
+    - SHOULD
+        - inspired by Javascript testing
+        - using sub-fixtures in NUnit
     - Tells you exactly what broke when it fails
     - A(V)AA
         - Arrange
@@ -65,7 +65,7 @@ Workshop: [DateTimeProvider](workshops/01-datetime-provider/readme.md)
     - factory function to create SUT
         - DRY
         - future-proofing your tests
-        
+
 [full notes](02-diving-in.md)
 
 Workshop: [String Calculator](workshops/02-string-calculator/readme.md)
