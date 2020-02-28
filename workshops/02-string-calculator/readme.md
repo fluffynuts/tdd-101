@@ -38,10 +38,10 @@ Credit: <a href="https://osherove.com/tdd-kata-1">Roy Osherove</a>
     Allow the Add method to handle new lines between numbers (instead of commas).
     <ol data-rte-list="default">
       <li>
-        The following input is ok: ΓÇ£1\n2,3ΓÇ¥ (will equal 6)
+        The following input is ok: "1\n2,3" (will equal 6)
       </li>
       <li>
-        The following input is NOT ok: ΓÇ£1,\nΓÇ¥ (not need to prove it - just clarifying). Invalid input may produce unspecified errors.
+        The following input is NOT ok: "1,\n" (not need to prove it - just clarifying). Invalid input may produce unspecified errors.
       </li>
     </ol>
   </p>
