@@ -54,7 +54,7 @@ To change a delimiter, the beginning of the string will contain a separate line 
 this: "//[delimiter]\n[numbers]" for example "//;\n1;2" should return three where the default
 delimiter is ";".
 
-The first line is optional. all existing scenarios should still be supported
+The first line is optional. All existing scenarios should still be supported
 
 </ol>
 </details>
@@ -77,7 +77,7 @@ The first line is optional. all existing scenarios should still be supported
 <details>
   <summary>Spec #6</summary>
      Delimiters can be of any length with the following format: "//[delimiter]\n",
-     for example: "//[***]\n1***2***" should return 6
+     for example: "//[***]\n1***2***3" should return 6
 
 </details>
 <details>
