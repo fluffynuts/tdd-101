@@ -93,7 +93,7 @@ Workshop: [String Calculator](workshops/02-string-calculator/readme.md)
         - what to do when tests fail
             - random values are random: make sure the range of randomness is valid
             - congratulations! perhaps you've found a bug in your production code?
-            
+
 [full notes](03-more-advanced.md)
 
 Workshop: [CRUD](workshops/03-crud/readme.md)
@@ -111,5 +111,7 @@ Workshop: [CRUD](workshops/03-crud/readme.md)
         - when you have to set up a lot of stuff to get a test working
         - prefer an arena over state in the test fixture
             - prevents test interactions
+
+[full notes](04-testing-more-complex-systems.md)
 
 Workshop: [WebApi Controller](workshops/04-webapi-controller/readme.md)
