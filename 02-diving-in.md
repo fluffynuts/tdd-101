@@ -320,7 +320,22 @@ by the eye.
 
 ### Use a Factory Function to create your SUT
 - DRY
-    - the "D" in SOLID stands for "Don't Repeat Yourself"
+    - Don't Repeat Yourself
+    - This is especially useful when you're using Dependency Injection (the "D" in SOLID)
+        as you may find that the constructor for your System Under Test (SUT) will change
+        over time. If `new` up the SUT in every test, you'll have to update every test
+        every time this constructor changes. One of the most common complaints I hear
+        about TDD (and unit tests in general) is that the tests are brittle, having to be
+        updated every time the production code changes. This is usually indicative of
+        _tests not being written in a way which withstands the natural evolution of
+        the codebase_. One of the ways to guard against this "update all the tests"
+        scenario is to _always_ use a factory function for the SUT in tests, even if
+        you're just starting out, even if you only have one test.
+    - Sticking to a naming convention for the factory function (I prefer `Create`)
+        means that someone who has read one of your tests now knows how to read
+        more of your tests - when they see `var sut = Create()`, they won't be
+        confused about what that means, and when they have to modify how the SUT
+        is created, they'll know exactly where to look.
 
 example:
 ```csharp
