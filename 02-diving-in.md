@@ -321,7 +321,8 @@ by the eye.
 ### Use a Factory Function to create your SUT
 - DRY
     - Don't Repeat Yourself
-    - This is especially useful when you're using Dependency Injection (the "D" in SOLID)
+    - This is especially useful when you're using Dependency Inversion (the "D" in SOLID,
+        most commonly achieved via Dependency Injection, most commonly via constructor parameters)
         as you may find that the constructor for your System Under Test (SUT) will change
         over time. If `new` up the SUT in every test, you'll have to update every test
         every time this constructor changes. One of the most common complaints I hear
